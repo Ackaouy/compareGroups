@@ -303,7 +303,7 @@ function(x, y, selec.i, method.i, timemax.i, alpha, min.dis, max.xlev, varname, 
             } else
               names(p.mul) <- paste("p.",levels(y)[1]," vs ",levels(y)[1],sep="")       
           } else {
-            p.trend<-try(cor.test(x,as.integer(y),method="spearman")$p.value,silent=TRUE)
+            p.trend<-try(cor.test(x,as.integer(y),method="spearman", exact = FALSE)$p.value,silent=TRUE)
             if (inherits(p.trend,"try-error"))
               p.trend <- NaN        
             if (is.na(p.trend))
