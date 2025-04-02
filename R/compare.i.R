@@ -363,7 +363,7 @@ function(x, y, selec.i, method.i, timemax.i, alpha, min.dis, max.xlev, varname, 
                 p.overall<-try(oneway.test(x~y)$p.value, silent=TRUE)
               if (inherits(p.overall,"try-error"))
                 p.overall<-NaN
-              p.trend<-try(cor.test(x,as.integer(y))$p.value,silent=TRUE)
+              p.trend<-try(cor.test(x,as.integer(y), exact=FALSE)$p.value,silent=TRUE)
               if (inherits(p.trend,"try-error"))
                 p.trend<-NaN 
               if (is.na(p.trend))
